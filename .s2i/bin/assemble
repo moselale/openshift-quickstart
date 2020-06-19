@@ -2,9 +2,9 @@
 
 #!/bin/sh
 
-if [ -f ./lib/native.libsapjco3.so ]; then
+if [ -f ./lib/native/libsapjco3.so ]; then
   echo "---> Copying libsapjco3 library..."
-  cp -v ./lib/native.libsapjco3.so "/lib"
+  cp -v ./lib/native/libsapjco3.so "/lib"
 fi
 
 set -e
