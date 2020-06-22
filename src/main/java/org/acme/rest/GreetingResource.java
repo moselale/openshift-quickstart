@@ -20,7 +20,7 @@ import com.sap.conn.jco.ext.DestinationDataProvider;
 @Path("/greeting")
 public class GreetingResource {
     static JCoDestination destination;
-    /* static {
+   /*  static {
         System.loadLibrary("libsapjco3");
     } */
 

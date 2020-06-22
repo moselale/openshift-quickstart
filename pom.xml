@@ -58,14 +58,14 @@
       <scope>system</scope>
       <systemPath>${basedir}/lib/sapjco3.jar</systemPath>
     </dependency>
-    <dependency>
+    <!-- <dependency>
       <groupId>com.sap.conn.jco</groupId>
       <artifactId>libsapjco3</artifactId>
       <version>${sapjco3-version}</version>
       <type>so</type>
       <scope>system</scope>
       <systemPath>${basedir}/lib/native/libsapjco3.so</systemPath>
-    </dependency>
+    </dependency> -->
   </dependencies>
   <build>
     <!-- <resources>
@@ -109,7 +109,7 @@
           <archive>
             <manifestEntries>
               <Build-By>me</Build-By>
-              <Class-Path>${basedir}/lib/sapjco3.jar ${basedir}/lib/native/libsapjco3.so</Class-Path>
+              <Class-Path>${basedir}/lib/sapjco3.jar <!-- ${basedir}/lib/native/libsapjco3.so --></Class-Path>
             </manifestEntries>
           </archive>
         </configuration>
