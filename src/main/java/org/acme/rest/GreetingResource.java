@@ -17,6 +17,9 @@ import com.sap.conn.jco.JCoFunction;
 // import com.sap.conn.jco.JCoTable;
 import com.sap.conn.jco.ext.DestinationDataProvider;
 
+import org.acme.db.DatabaseHandler;
+import org.acme.model.Gift;
+
 @Path("/greeting")
 public class GreetingResource {
     static JCoDestination destination;
@@ -56,11 +59,21 @@ public class GreetingResource {
         System.out.println(" Echo: " + function.getExportParameterList().getString("ECHOTEXT"));
         System.out.println(" Response: " + function.getExportParameterList().getString("RESPTEXT"));
 
-        return  "hello";
+        Gift gift = new Gift();
+        // gift.setName(function.getExportParameterList().getString("RESPTEXT"));
+        if(DatabaseHandler.persistGift(gift)){
+            return  "Gift salvato!!";
+        }
+        /*if(DatabaseHandler.persistGift(gift)){
+            return "fatta";
+        }  */
+        
+
+        return  "errore, vedi i log";
         // return function.getExportParameterList().getString("RESPTEXT");
     }
 
-    static void createDataFile(String name, String suffix, Properties properties) {
+     void createDataFile(String name, String suffix, Properties properties) {
         File cfg = new File(name + "." + suffix);
         if (!cfg.exists()) {
             try {
