@@ -23,6 +23,7 @@ import org.acme.model.Gift;
 @Path("/greeting")
 public class GreetingResource {
     static JCoDestination destination;
+    DatabaseHandler dbHandler = new DatabaseHandler();
    /*  static {
         System.loadLibrary("libsapjco3");
     } */
@@ -61,7 +62,7 @@ public class GreetingResource {
 
         Gift gift = new Gift();
         // gift.setName(function.getExportParameterList().getString("RESPTEXT"));
-        if(DatabaseHandler.persistGift(gift)){
+        if(dbHandler.createGift(gift)){
             return  "Gift salvato!!";
         }
         /*if(DatabaseHandler.persistGift(gift)){

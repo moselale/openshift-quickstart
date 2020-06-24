@@ -17,7 +17,7 @@ import org.acme.model.Gift;
 public class DatabaseHandler {
     
     @Inject
-    static EntityManager em;
+    private EntityManager em;
 
     private static final Logger LOGGER = LoggerFactory.getLogger(DatabaseHandler.class);
     
@@ -28,13 +28,13 @@ public class DatabaseHandler {
             em.persist(gift);
             return true;
         }catch(Exception e){
-            trace("Errore nel salvare il Gift. Errore: " + e, e);
+            trace("Errore nel creare il Gift. Errore: " + e, e);
             return false;
         }
     }
 
     @Transactional
-    public static boolean persistGift(Gift gift) {
+    public boolean persistGift(Gift gift) {
 		try {
 
 			// EntityManager em = getEm();
